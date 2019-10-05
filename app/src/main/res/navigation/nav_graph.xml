@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.home.HomeFragment"
+        android:label="greentask"
+        tools:layout="@layout/fragment_home" />
+    <action android:id="@+id/action_global_homeFragment" app:destination="@id/homeFragment" />
+    <action android:id="@+id/action_global_profileFragment" app:destination="@id/profile" />
+    <action android:id="@+id/action_global_settingsFragment" app:destination="@id/settings"/>
+    <action android:id="@+id/action_global_aboutFragment" app:destination="@id/about" />
+    <fragment
+        android:id="@+id/accountSetupFragment"
+        android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.account.AccountSetupFragment"
+        android:label="account_setup_fragment"
+        tools:layout="@layout/fragment_account_setup" />
+    <action android:id="@+id/action_global_accountSetupFragment" app:destination="@id/accountSetupFragment" />
+    <navigation
+        android:id="@+id/settings"
+        app:startDestination="@id/settingsFragment" >
+        <fragment
+            android:id="@+id/settingsAlarmFragment"
+            android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.settings.SettingsAlarmFragment"
+            android:label="Alarm"
+            tools:layout="@layout/fragment_settings_alarm">
+            <action
+                android:id="@+id/action_settingsAlarmFragment_to_pickSoundFragment"
+                app:destination="@id/pickSoundFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/pickSoundFragment"
+            android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.settings.PickSoundFragment"
+            android:label="Sounds"
+            tools:layout="@layout/fragment_pick_sound" />
+        <fragment
+            android:id="@+id/settingsFragment"
+            android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.settings.SettingsFragment"
+            android:label="Settings"
+            tools:layout="@layout/fragment_settings">
+            <action
+                android:id="@+id/action_settingsFragment_to_settingsAlarmFragment"
+                app:destination="@id/settingsAlarmFragment" />
+        </fragment>
+    </navigation>
+    <navigation
+        android:id="@+id/profile"
+        app:startDestination="@id/profileFragment" >
+        <fragment
+            android:id="@+id/profileFragment"
+            android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.profile.ProfileFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_profile">
+            <action
+                android:id="@+id/action_profileFragment_to_completedTasksFragment"
+                app:destination="@id/completedTasksFragment" />
+            <action
+                android:id="@+id/action_profileFragment_to_confirmLogoutFragment"
+                app:destination="@id/confirmLogoutFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/confirmLogoutFragment"
+            android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.profile.ConfirmLogoutFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_confirm_logout" />
+        <fragment
+            android:id="@+id/completedTasksFragment"
+            android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.profile.CompletedTasksFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_completed_tasks" />
+    </navigation>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.account.SignInFragment"
+        android:label="Sign In"
+        tools:layout="@layout/fragment_sign_in" />
+    <action android:id="@+id/action_global_signInFragment" app:destination="@id/signInFragment" />
+    <navigation
+        android:id="@+id/about"
+        app:startDestination="@id/aboutFragment" >
+        <fragment
+            android:id="@+id/aboutFragment"
+            android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.about.AboutFragment"
+            android:label="About"
+            tools:layout="@layout/fragment_about">
+            <action
+                android:id="@+id/action_aboutFragment_to_privacyPolicyFragment"
+                app:destination="@id/privacyPolicyFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/privacyPolicyFragment"
+            android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.about.PrivacyPolicyFragment"
+            android:label="About"
+            tools:layout="@layout/fragment_privacy_policy" />
+    </navigation>
+    <fragment
+        android:id="@+id/homeFragmentFirstRun"
+        android:name="org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.home.HomeFragmentFirstRun"
+        android:label="greentask"
+        tools:layout="@layout/fragment_home_first_run" />
+    <action android:id="@+id/action_global_homeFragmentFirstRun" app:destination="@id/homeFragmentFirstRun" />
+</navigation>

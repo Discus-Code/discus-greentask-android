@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="colorPrimary">#37E5FC</color>
+    <color name="colorPrimaryDark">#82DE09</color>
+    <color name="colorAccent">#FF8993</color>
+    <color name="colorHighlighted">#FEC180</color>
+    <color name="stepDownFromHighlighted">#FFDFC0</color>
+
+
+<!--    <color name="colorPrimary">#fff</color>-->
+<!--    <color name="colorPrimaryDark">#000</color>-->
+<!--    <color name="colorAccent">#ccc</color>-->
+<!--    <color name="colorHighlighted">#ccc</color>-->
+<!--    <color name="stepDownFromHighlighted">#eee</color>-->
+
+
+</resources>

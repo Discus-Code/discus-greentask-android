@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".discus.activities.NotificationActivity" >
+
+    <item android:id="@+id/action_home"
+        android:title="Home"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_home_black_24dp"
+        />
+    <item android:id="@+id/action_settings"
+        android:title="Settings"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_settings_black_24dp"
+        />
+    <item android:id="@+id/action_profile"
+        android:title="Profile"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_person_black_24dp"
+        />
+    <item android:id="@+id/action_discus"
+        android:title="Discus"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_discuslogo"
+        />
+
+
+</menu>

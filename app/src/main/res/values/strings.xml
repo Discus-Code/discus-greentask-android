@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NotificationScheduler</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sound_alarm">SoundAlarmActivity</string>
+    <string name="sign_in">Sign In</string>
+    <string name="title_activity_index">GreenTask</string>
+    <string name="title_activity_firebase_demo">FirebaseDemoActivity</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_run_text">You\'ll receive your first sustainability task at %1$s today/tomorrow.  To change the time, just go to settings.</string>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sound_alarm_nav_graph"
+    app:startDestination="@id/soundAlarmLandingFragment">
+
+    <fragment
+        android:id="@+id/soundAlarmLandingFragment"
+        android:name="org.discusinstitute.greentaskandroid.discus.fragments.soundalarmactivity.SoundAlarmLandingFragment"
+        android:label="fragment_sound_alarm_landing"
+        tools:layout="@layout/fragment_sound_alarm_landing" >
+        <action
+            android:id="@+id/action_soundAlarmLandingFragment_to_wayToGoFragment"
+            app:destination="@id/wayToGoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wayToGoFragment"
+        android:name="org.discusinstitute.greentaskandroid.discus.fragments.soundalarmactivity.WayToGoFragment"
+        android:label="fragment_way_to_go"
+        tools:layout="@layout/fragment_way_to_go" />
+</navigation>

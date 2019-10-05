@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fragment_default_padding">16dp</dimen>
+    <dimen name="title1_size">48dp</dimen>
+    <dimen name="h1_size">36dp</dimen>
+    <dimen name="h2_size">24dp</dimen>
+    <dimen name="xtra_xtra_big_margin">96dp</dimen>
+    <dimen name="xtra_big_margin">64dp</dimen>
+    <dimen name="big_margin">32dp</dimen>
+    <dimen  name="med_margin">16dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="big_display_text">48dp</dimen>
+    <dimen name="small_text_1">16dp</dimen>
+</resources>

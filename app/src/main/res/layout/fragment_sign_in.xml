@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".discus.fragments.indexactivity.account.SignInFragment"
+    android:padding="@dimen/fragment_default_padding"
+    >
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/google_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="with google"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/facebook_btn"
+        app:icon="@drawable/ic_google_icon"
+        android:layout_marginTop="@dimen/big_margin"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/facebook_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="with facebook"
+        app:layout_constraintLeft_toRightOf="@id/google_btn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/google_btn"
+        app:icon="@drawable/ic_facebook_icon"
+        />
+
+    <View
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/big_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/facebook_btn"
+        android:background="#666"
+        />
+
+    <TextView
+        android:id="@+id/or_signin_with"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Or sign in with:"
+        app:layout_constraintTop_toBottomOf="@id/space"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/big_margin"
+        ></TextView>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="username"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layout_constraintTop_toBottomOf="@id/or_signin_with"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Sam"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/password"
+        app:layout_constraintTop_toBottomOf="@id/username"
+        android:hint="password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/username_signin_button"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:enabled="false"
+
+
+        android:text="Sign in with username" />
+
+    <View
+        android:id="@+id/space2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/big_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username_signin_button"
+        android:background="#666"
+        />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign up for an account"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/big_margin"
+        app:layout_constraintTop_toBottomOf="@id/space2"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+    <style name="title1" parent="AppTheme">
+        <item name="android:textSize">@dimen/title1_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="h1" parent="AppTheme">
+        <item name="android:textSize">@dimen/h1_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="h1_light" parent="AppTheme">
+        <item name="android:textSize">@dimen/h1_size</item>
+
+    </style>
+    <style name="h2" parent="AppTheme">
+        <item name="android:textSize">@dimen/h2_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="LoadingProgressBar" parent="@style/Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">#7E7E7E</item>
+
+    </style>
+
+    <style name="BlackAndWhiteTimePicker" parent="AppTheme">
+        <item name="colorPrimary">#ccc</item>
+        <item name="colorPrimaryDark">#000</item>
+        <item name="colorAccent">#aaa</item>
+        <item name="android:textColorPrimary">#000</item>
+    </style>
+</resources>

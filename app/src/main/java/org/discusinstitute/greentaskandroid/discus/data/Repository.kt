@@ -174,7 +174,7 @@ class Repository(val appDatabase: AppDatabase) {
 
     fun pickRandomTask() {
         GlobalScope.launch {
-            val tasks = appDao.getTasksSync()
+            val tasks = appDao.getTasksS()
             if (tasks.isNotEmpty()) {
                 setCurrentTaskId(tasks.shuffled().first().id)
             }

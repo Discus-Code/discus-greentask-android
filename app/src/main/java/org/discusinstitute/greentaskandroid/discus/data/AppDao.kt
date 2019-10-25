@@ -49,7 +49,7 @@ interface AppDao {
     fun getTasks(): LiveData<List<SustainabilityTask>>
 
     @Query("SELECT * FROM sustainabilityTask")
-    fun getTasksSync(): List<SustainabilityTask>
+    suspend fun getTasksS(): List<SustainabilityTask>
 
     @Query ("SELECT * FROM sustainabilityTask where id = :id")
     fun getTask(id: String): LiveData<SustainabilityTask?>

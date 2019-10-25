@@ -30,10 +30,17 @@ class HomeFragmentFirstRun : IndexActivityBaseFragment() {
         }})
 
         model.currentAlarmTime.observe(viewLifecycleOwner, Observer {
-            val timeString = RenderTime.hourMinuteString(it) + RenderTime.amPMString(it)
-            val text = String.format(resources.getString(R.string.first_run_text), timeString)
+            calendar ->
+            val timeString =
+                RenderTime.hourMinuteString(calendar) +
+                        RenderTime.amPMString(calendar)
+            val text = String.format(
+                resources.getString(R.string.first_run_text), timeString)
             first_task.text = text
+            model.setAndroidAlarm(calendar)
         })
+
+
 
     }
 

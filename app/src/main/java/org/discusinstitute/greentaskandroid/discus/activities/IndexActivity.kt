@@ -46,21 +46,10 @@ class IndexActivity : AppCompatActivity(),
         settings_btn.setOnClickListener{navigateSettings() }
 
         about_btn.setOnClickListener{navigateAbout()}
-
-        model.isFirstRun.observe(this, Observer {
-            if (it == true || it == null) {
-                GlobalScope.launch {
-                 onFirstRun()
-                }
-            } else {
-                model.reEstablishAlarmFromStoredAlarmTime()
-            }
-        })
     }
 
     override fun onStart() {
         super.onStart()
-        navigateHome()
     }
 
     override fun showProgressBar() {
@@ -123,10 +112,5 @@ class IndexActivity : AppCompatActivity(),
         profile_btn.setImageResource(R.drawable.ic_person_black_24dp)
         settings_btn.setImageResource(R.drawable.ic_settings_black_24dp)
         about_btn.setImageResource(R.drawable.ic_discuslogo)
-    }
-
-    suspend fun onFirstRun() {
-        model.setCurrentAlarmTime(defaultAlarmHour,defaultAlarmMinute)
-        model.didFirstRun()
     }
 }

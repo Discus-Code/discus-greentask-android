@@ -4,6 +4,7 @@ package org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.acco
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import org.discusinstitute.greentaskandroid.R
 import org.discusinstitute.greentaskandroid.discus.fragments.IndexActivityBaseFragment
 
 class SignInFragment : IndexActivityBaseFragment() {
+    val TAG = "SignInFragment"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +39,11 @@ class SignInFragment : IndexActivityBaseFragment() {
         model.signedIn.observe(viewLifecycleOwner, Observer {
             loggedIn -> if (loggedIn) {
                 listener?.navigateHome()
-        }})
+            } else {
+                Log.d(TAG, "not logged in")
+
+            }
+        })
     }
 
     fun doDummySignin() {

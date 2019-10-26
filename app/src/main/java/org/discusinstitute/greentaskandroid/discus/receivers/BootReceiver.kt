@@ -6,7 +6,8 @@ import android.content.Intent
 import android.util.Log
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.discusinstitute.greentaskandroid.discus.data.Repository
+import org.discusinstitute.greentaskandroid.discus.data.repository.Repository
+import org.discusinstitute.greentaskandroid.discus.data.repository.getCurrentAlarmTimeS
 import org.discusinstitute.greentaskandroid.vendor.blauhaus.cancelAlarm
 import org.discusinstitute.greentaskandroid.vendor.blauhaus.getCalendar
 import org.discusinstitute.greentaskandroid.vendor.blauhaus.setAlarm

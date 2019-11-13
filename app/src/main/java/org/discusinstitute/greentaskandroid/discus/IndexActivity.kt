@@ -8,20 +8,17 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.beust.klaxon.Klaxon
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_index.*
 import kotlinx.android.synthetic.main.widget_loading_progress_bar.*
 import org.discusinstitute.greentaskandroid.R
 import org.discusinstitute.greentaskandroid.discus.data.Model
-import org.discusinstitute.greentaskandroid.discus.data.Task
 import org.discusinstitute.greentaskandroid.discus.fragments.BaseFragment
 import org.discusinstitute.greentaskandroid.discus.receivers.NotificationPublisher
+import org.discusinstitute.greentaskandroid.vendor.blauhaus.alarmIsSet
 import org.discusinstitute.greentaskandroid.vendor.blauhaus.createNotificationChannel
-import org.discusinstitute.greentaskandroid.vendor.blauhaus.getCalendar
 import org.discusinstitute.greentaskandroid.vendor.blauhaus.setAlarm
 
 
@@ -37,11 +34,17 @@ class IndexActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         Log.d(TAG, "index activity oncreate")
         setContentView(R.layout.activity_index)
+        model = Model(this)
+        navController = findNavController(R.id.nav_host_fragment)
 
         createNotificationChannel(this, channelName, channelDescription, channelID)
 
-        model = Model(this)
-        navController = findNavController(R.id.nav_host_fragment)
+        if (!alarmIsSet(this,
+                NotificationPublisher.getIntent(this), 0)) {
+            setAlarm(this,
+                model.getAlarmTime(), NotificationPublisher.getPendingIntent(this))
+        }
+
 
         if(intent.hasExtra(SCREEN_EXTRA)) {
             Log.d(TAG, "have screen extra")
@@ -64,15 +67,6 @@ class IndexActivity : AppCompatActivity(),
         }
 
     }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "indexactivity onresume")
-        var pendingIntent = NotificationPublisher.pendingIntent(this)
-        var alarmTime = model.getAlarmTime()
-        setAlarm(this, alarmTime, pendingIntent)
-    }
-
 
     override fun showProgressBar() {
         loadingProgressBar.visibility = View.VISIBLE
@@ -111,15 +105,18 @@ class IndexActivity : AppCompatActivity(),
         val DETAIL_SCREEN="detail"
         val LAUNCH_SCREEN="launch"
 
-        fun getPendingIntent(context:Context, taskId:Int = 1, screen:String="detail"):PendingIntent {
+        fun getIntent(context: Context, taskId:Int = 1, screen:String = "detail"):Intent {
             val intent = Intent(context, IndexActivity::class.java)
             intent.putExtra(TASK_ID_EXTRA, taskId)
             intent.putExtra(SCREEN_EXTRA, screen)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            return intent
+        }
 
+        fun getPendingIntent(context:Context, taskId:Int = 1, screen:String="detail"):PendingIntent {
             return PendingIntent.getActivity(context,
-                PENDING_INTENT_REQUEST_CODE,
-                intent,
+                0,
+                getIntent(context, taskId, screen),
                 PendingIntent.FLAG_UPDATE_CURRENT)
         }
     }

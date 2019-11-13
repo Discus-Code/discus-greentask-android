@@ -5,10 +5,12 @@ import android.app.AlarmManager
 import android.app.KeyguardManager
 import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.view.WindowManager
 import android.widget.TextView
 import android.widget.TimePicker
+import org.discusinstitute.greentaskandroid.discus.IndexActivity
 import java.util.*
 
 
@@ -36,6 +38,7 @@ fun getCalendar(timeInMillis: Long):Calendar {
 }
 
 fun setAlarm(context:Context, calendar: Calendar, alarmIntent:PendingIntent) {
+    cancelAlarm(context, alarmIntent)
     val alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     alarmMgr?.setInexactRepeating(
         AlarmManager.RTC_WAKEUP,
@@ -48,6 +51,12 @@ fun setAlarm(context:Context, calendar: Calendar, alarmIntent:PendingIntent) {
 fun cancelAlarm(context:Context, pendingIntent:PendingIntent) {
     val alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     alarmMgr?.cancel(pendingIntent)
+}
+
+fun alarmIsSet(context:Context, payload: Intent, requestCode:Int = 0):Boolean {
+    return PendingIntent.getBroadcast(context, requestCode, payload,
+        PendingIntent.FLAG_NO_CREATE) != null
+
 }
 
 fun showThroughLockScreen(activity: Activity) {

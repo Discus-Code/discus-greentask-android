@@ -7,8 +7,6 @@ import android.util.Log
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.discusinstitute.greentaskandroid.discus.data.Model
-import org.discusinstitute.greentaskandroid.vendor.blauhaus.cancelAlarm
-import org.discusinstitute.greentaskandroid.vendor.blauhaus.getCalendar
 import org.discusinstitute.greentaskandroid.vendor.blauhaus.setAlarm
 
 class BootReceiver : BroadcastReceiver() {
@@ -18,16 +16,10 @@ class BootReceiver : BroadcastReceiver() {
             Log.d("YAKATORI", "boot received")
             GlobalScope.launch{
                 val model = Model(context)
-                cancelAlarm(
-                    context,
-                    NotificationPublisher.pendingIntent(
-                        context
-                    )
-                )
                 setAlarm(
                     context,
                     model.getAlarmTime(),
-                    NotificationPublisher.pendingIntent(
+                    NotificationPublisher.getPendingIntent(
                         context
                     )
                 )

@@ -1,5 +1,6 @@
-package org.discusinstitute.greentaskandroid.discus.fragments.indexactivity.settings
+package org.discusinstitute.greentaskandroid.discus.fragments
 
+import android.app.Notification
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,39 +8,33 @@ import android.view.ViewGroup
 import android.widget.TimePicker
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_settings_alarm.*
-import org.discusinstitute.greentaskandroid.vendor.blauhaus.getHour
-import org.discusinstitute.greentaskandroid.vendor.blauhaus.getMinute
-import org.discusinstitute.greentaskandroid.vendor.blauhaus.setTime
-import org.discusinstitute.greentaskandroid.discus.fragments.IndexActivityBaseFragment
 import kotlinx.android.synthetic.main.fragment_settings_alarm.view.*
 import org.discusinstitute.greentaskandroid.R
+import org.discusinstitute.greentaskandroid.discus.calendarPref
+import org.discusinstitute.greentaskandroid.discus.receivers.NotificationPublisher
+import org.discusinstitute.greentaskandroid.vendor.blauhaus.*
 
-class SettingsAlarmFragment : IndexActivityBaseFragment() {
+class SettingsAlarmFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_settings_alarm, container, false)
 
-        view.select_sound_and_display.setOnClickListener{
-            navController.navigate(R.id.action_settingsAlarmFragment_to_pickSoundFragment)
-        }
-
         view.alarm_time_picker.setOnTimeChangedListener(object: TimePicker.OnTimeChangedListener {
             override fun onTimeChanged(view: TimePicker?, hourOfDay: Int, minute: Int) {
-                model.setCurrentAlarmTime(getHour(alarm_time_picker), getMinute(alarm_time_picker))
+                val calendar = getCalendar(getHour(alarm_time_picker), getMinute(alarm_time_picker))
+                model.saveAlarmTime(calendar)
+                setAlarm(activity!!, calendar, NotificationPublisher.pendingIntent(activity!!))
             }
         })
 
         return view
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        model.currentAlarmTime.observe(viewLifecycleOwner, Observer { cal ->
-            cal?.let {setTime(alarm_time_picker, cal)}
-        })
+        setTime(alarm_time_picker, getCalendarPref(activity!!, getCalendar(), calendarPref))
     }
 }
+

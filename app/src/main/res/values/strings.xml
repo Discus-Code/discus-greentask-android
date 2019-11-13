@@ -7,6 +7,9 @@
     <string name="title_activity_firebase_demo">FirebaseDemoActivity</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="first_run_text">You\'ll receive your first sustainability task at %1$s today/tomorrow.  To change the time, just go to settings.</string>
+    <string name="welcome_text">You\'ll receive a sustainability action at %1$s today/tomorrow.  To change the time, just click below.</string>
+    <string name="greentask_logo">GreenTask Logo</string>
+    <string name="greentask">GreenTask</string>
+    <string name="change_notification_time">Change notification time</string>
 
 </resources>

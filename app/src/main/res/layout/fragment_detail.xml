@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".discus.fragments.HomeFragment"
+    tools:context=".discus.fragments.DetailFragment"
     android:padding="@dimen/fragment_default_padding"
     android:id="@+id/root_layout"
     android:orientation="vertical"
     android:gravity="center"
-   >
+    >
 
     <ImageView
         android:id="@+id/logo"
@@ -31,22 +31,32 @@
         />
 
     <TextView
-        android:id="@+id/welcome_message"
+        android:id="@+id/action_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:text="Name"
         android:gravity="center"
-        android:text="@string/welcome_text"
-        android:layout_marginTop="16dp"
         />
+    <TextView
+        android:id="@+id/action_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:text="Text"
+        android:gravity="center"
+        android:layout_marginTop="4dp"/>
 
     <TextView
-        android:id="@+id/settings_button"
+        android:id="@+id/action_factoid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Factoid"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         android:gravity="center"
-        android:text="@string/change_notification_time"
-        android:textColor="#F00"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         />
+
+
 
 </LinearLayout>

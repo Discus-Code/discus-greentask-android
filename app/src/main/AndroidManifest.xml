@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         >
         <activity
-            android:name="org.discusinstitute.greentaskandroid.discus.activities.IndexActivity"
+            android:name="org.discusinstitute.greentaskandroid.discus.IndexActivity"
             android:label="@string/title_activity_index"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
@@ -25,15 +25,6 @@
                     <category android:name="android.intent.category.LAUNCHER" />
                 </intent-filter>
         </activity>
-
-        <activity
-            android:name="org.discusinstitute.greentaskandroid.discus.activities.SoundAlarmActivity"
-            android:label="@string/title_activity_sound_alarm"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:showForAllUsers="true"
-            android:parentActivityName=".discus.activities.IndexActivity"
-            android:screenOrientation="portrait"
-            />
 
         <receiver
             android:name="org.discusinstitute.greentaskandroid.discus.receivers.BootReceiver"

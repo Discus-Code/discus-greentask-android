@@ -1,5 +1,5 @@
-package org.discusinstitute.greentaskandroid.vendor.blauhaus
 
+package org.discusinstitute.greentaskandroid.vendor.blauhaus
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager

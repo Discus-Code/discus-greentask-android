@@ -5,7 +5,15 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import org.discusinstitute.greentaskandroid.discus.activities.SoundAlarmActivity
+import com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy.LOG
+import org.discusinstitute.greentaskandroid.R
+import org.discusinstitute.greentaskandroid.discus.*
+import org.discusinstitute.greentaskandroid.discus.data.Model
+import org.discusinstitute.greentaskandroid.vendor.blauhaus.buildBigTextNotification
+import org.discusinstitute.greentaskandroid.vendor.blauhaus.createNotificationChannel
+import org.discusinstitute.greentaskandroid.vendor.blauhaus.notify
+import java.lang.IndexOutOfBoundsException
+import kotlin.random.Random
 
 class NotificationPublisher:BroadcastReceiver() {
 
@@ -14,13 +22,34 @@ class NotificationPublisher:BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         Log.d(TAG, "onReceive")
 
-        startAlarmActivity(context!!)
-    }
-
-    private fun startAlarmActivity(context:Context) {
-        val i  = Intent(context, SoundAlarmActivity::class.java)
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(i)
+        if (context != null) {
+            Log.d(TAG, "have context")
+            val model = Model(context)
+            val task = model.getTasks()?.shuffled()?.first()
+            Log.d(TAG, task.toString())
+            val tid = task?.action_id
+            val shortText = task?.action_text
+            val title = task?.action_name
+            if (tid != null && shortText != null && title != null) {
+                Log.d(TAG, "Creating notification")
+                var pendingIntent = IndexActivity.getPendingIntent(context, tid)
+                val notification = buildBigTextNotification(
+                    context,
+                    pendingIntent,
+                    channelID,
+                    R.drawable.ic_discuslogo_green,
+                    null,
+                    "GreenTask Daily!",
+                    title,
+                    shortText)
+                notify(context, notification, Random.nextInt() )
+            } else {
+                Log.d(TAG, "bad task")
+                Log.d(TAG, task.toString())
+            }
+        } else {
+            Log.d(TAG, "no context")
+        }
     }
 
     companion object {

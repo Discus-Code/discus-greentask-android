@@ -12,7 +12,7 @@ import android.widget.TimePicker
 import java.util.*
 
 
-fun getCalendar(hour: Int = 14 /*2pm*/, minute:Int = 1, dontSetPastAlarms:Boolean=true):Calendar {
+fun getCalendar(hour: Int = 14 /*2pm*/, minute:Int = 0, dontSetPastAlarms:Boolean=true):Calendar {
     var newCal = Calendar.getInstance().apply {
         timeInMillis = System.currentTimeMillis()
         set(Calendar.HOUR_OF_DAY, hour)
@@ -146,6 +146,10 @@ class RenderTime {
             } else {
                 return "PM"
             }
+        }
+
+        fun renderTime(cal:Calendar) : String{
+            return hourMinuteString(cal) + amPMString(cal)
         }
 
         fun renderTime(cal: Calendar?, timeView: TextView, ampmView: TextView) {

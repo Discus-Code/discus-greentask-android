@@ -3,6 +3,7 @@
 ## Historical: How this app came to be.
 
 ### Week 1
+Roughing in the various screens based on an early UX design, generally getting a head start on the project.
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
@@ -11,6 +12,7 @@
 
 
 ### Week 2
+Making screens functional, and paying some attention to material design.
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
@@ -20,6 +22,8 @@
 
 
 ### Week 3
+Falling back to an MVP as a way to have something tangible to make decisions based off of.  This
+version uses notifications instead of custom alarms, and is generally much more sparse.
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
